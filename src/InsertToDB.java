@@ -6,7 +6,6 @@ public class InsertToDB extends Thread {
 	private PrepareKeys prepare = null;
 	private int num;
 	private int range;
-	private String sql = "INSERT INTO test VALUES(?,?,?,?,?)";
 
 	public InsertToDB(PrepareKeys prep, int num, int range) {
 		this.prepare = prep;
@@ -15,9 +14,11 @@ public class InsertToDB extends Thread {
 	}
 
 	public void run() {
-		DatabaseConnection db = new DatabaseConnection();
-		db.getConnection();
 		PreparedStatement pstmt = null;
+		DatabaseConnection db = new DatabaseConnection();
+		String sql = "INSERT INTO test VALUES(?,?,?,?,?)";
+
+		db.getConnection();
 		try {
 			pstmt = db.conn.prepareStatement(sql);
 		} catch (SQLException e) {
