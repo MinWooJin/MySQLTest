@@ -31,6 +31,10 @@ public class InsertToDB extends Thread {
 	}
 
 	public static void main(String[] args) {
+		/*int Num = 100;
+		ZipfGenerator zipfGenerator = new ZipfGenerator(Num, 0.7);
+		zipfGenerator.ZipfTest(Num);*/
+
 		ArrayList<Thread> threads = new ArrayList<>();
 		PrepareKeys prep = new PrepareKeys();
 		int threadNum = 10;
@@ -50,5 +54,14 @@ public class InsertToDB extends Thread {
 				e.printStackTrace();
 			}
 		}
+		/* Make index
+			primary_index : product_id
+			secondary_index : seller_id, regi_date
+		 */
+		DatabaseConnection db = new DatabaseConnection();
+		db.getConnection();
+		db.updateQuery("CREATE INDEX primary_index ON test (product_id)");
+		db.updateQuery("CREATE INDEX secondary_index ON test (seller_id, regi_date)");
+		db.closeConnection();
 	}
 }

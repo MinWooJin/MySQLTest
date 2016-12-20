@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -65,11 +66,31 @@ public class ZipfGenerator {
 		return ret;
 	}
 
-	public List<String> makeZipfProductIdList(int Num) {
+	public void ZipfTest(int Num) {
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < Num; i++) {
+			list.add(i, getZipfProductId(Num));
+		}
+		Collections.sort(list);
+		int count = 1;
+		int sum = 0;
+		for (int i = 1; i < list.size(); i++) {
+			if (list.get(i-1).equals(list.get(i))) {
+				count++;
+			} else {
+				System.out.println(list.get(i-1) + " = " + count);
+				sum += count;
+				count = 1;
+			}
+		}
+		System.out.println("sum = " + sum);
+	}
+
+	/*public List<String> makeZipfProductIdList(int Num) {
 		List<String> ret = new ArrayList<>();
 		for (int i = 0; i < Num; i++) {
 			ret.add(i, getZipfProductId(Num));
 		}
 		return ret;
-	}
+	}*/
 }
