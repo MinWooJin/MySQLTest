@@ -16,7 +16,7 @@ public class InsertToDB extends Thread {
 	public void run() {
 		PreparedStatement pstmt = null;
 		DatabaseConnection db = new DatabaseConnection();
-		String sql = "INSERT INTO test VALUES(?,?,?,?,?)";
+		String sql = "INSERT INTO product VALUES(?,?,?,?,?)";
 
 		db.getConnection();
 		try {
