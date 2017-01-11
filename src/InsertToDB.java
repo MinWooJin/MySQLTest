@@ -60,8 +60,8 @@ public class InsertToDB extends Thread {
 		 */
 		DatabaseConnection db = new DatabaseConnection();
 		db.getConnection();
-		db.updateQuery("CREATE INDEX primary_index ON test (product_id)");
-		db.updateQuery("CREATE INDEX secondary_index ON test (seller_id, regi_date)");
+		db.updateQuery("CREATE INDEX primary_index ON product (product_id)");
+		db.updateQuery("CREATE INDEX secondary_index ON product (seller_id, regi_date)");
 		db.closeConnection();
 	}
 }

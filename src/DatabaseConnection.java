@@ -5,9 +5,9 @@ public class DatabaseConnection {
 	public Statement stmt = null;
 
 	public String removeWARN = "?autoReconnect=true&useSSL=false";
-	public String url = "jdbc:mysql://1.255.51.181:3306/mwjin_test" + removeWARN;
-	public String id = "alsdn653";
-	public String pw = "Jin842862@";
+	public String url = "jdbc:mysql://1.255.51.181:3306/test_db" + removeWARN;
+	public String id = "dbtest";
+	public String pw = "Jam9327in#";
 
 	public DatabaseConnection() {
 		try {
